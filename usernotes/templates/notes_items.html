@@ -1,0 +1,17 @@
+{% for note in usernotes %}
+<div class="note-wrap">
+    <div class="note-title"><a href="/note/{{note.id}}/">{{ note.title }}</a></div>
+    <div class="note-meta">
+        {{ note.created|date:"d.m.Y h:i" }}
+        <span class="note-meta-separator">-</span>
+        <span class="note-meta-category">{{ note.category.title }}</span>
+        {% if note.is_favorite %}
+            <span class="note-meta-separator">-</span>
+            <span class="favorite-note">избранная</span>
+        {% endif %}
+        <a class="listitem-edit-button" href="/note/edit/{{note.id}}/">Редактировать</a>
+    </div>
+    <div class="note-body">{{ note.body|safe|linebreaks }}</div>
+</div>
+<hr>
+{% endfor %}

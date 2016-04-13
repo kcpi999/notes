@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="note-wrap add-edit-form">
+    {% if form.errors %}
+        <p class="error">Форма не прошла валидацию</p>
+    {% endif %}
+    <form action="/note/edit/{{note_id}}/" method="POST">
+        {% csrf_token %}
+        <ul>
+        {{ form.as_ul }}    
+        </ul>
+        <button type="submit" class="button edit-button" name="save" value="save">Записать</button>
+        <button type="submit" class="button delete-button" name="delete" value="delete">Удалить</button>
+    </form>
+</div>
+{% endblock %}

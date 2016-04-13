@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="register-form-wrap">
+    <h2>Регистрация пользователя в системе</h2>
+    <form class="register-form" action="/accounts/register/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="submit" type="submit" value="зарегистрироваться">
+    </form>
+</div>
+{% endblock %}

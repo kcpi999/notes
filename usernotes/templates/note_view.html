@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="note-wrap">
+    <div class="note-title"><a href="/note/{{note.id}}">{{ usernote.title }}</a></div>
+    <div class="note-meta">
+        {{ usernote.created|date:"d.m.Y h:i" }}
+        <span class="note-meta-separator">-</span>
+        <span class="note-meta-category">{{ usernote.category.title }}</span>
+        {% if usernote.is_favorite %}
+            <span class="note-meta-separator">-</span>
+            <span class="favorite-note">избранная</span>
+        {% endif %}
+    </div>
+    <div class="note-body">{{ usernote.body|safe|linebreaks }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% block notes_controls %}
+        {% include 'notes_controls.html' %}
+    {% endblock %}
+    <div class="notes-list" id="notes-list">
+        {% block notes_items %}
+            {% include 'notes_items.html' %}
+        {% endblock %}        
+    </div>
+    {% block load_more_button %}
+        {% include 'load_more_button.html' %}
+    {% endblock %}
+{% endblock %}

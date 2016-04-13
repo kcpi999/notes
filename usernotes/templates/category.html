@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="category-title">Категория: {{ category.title }}</div>
+<div class="notes-list">
+    {% for note in notes %}
+    <div class="note-wrap">
+        <div class="note-title"><a href="/notes/{{note.id}}/">{{ note.title }}</a></div>
+        <div class="note-meta">{{ note.created|date:"d.m.Y h:i:s" }}</div>
+        <div class="note-body">{{ note.body|safe|linebreaks }}</div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}

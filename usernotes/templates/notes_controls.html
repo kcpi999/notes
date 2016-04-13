@@ -1,0 +1,11 @@
+{% block notes_controls %}
+<div class="notes-list__controls" id="notes-list__controls">
+    <a class="add-item-button button" href="/note/add/">Новая заметка</a>
+    <script>        
+        App.noteCategories = [];
+        {% for category in categories %}App.noteCategories.push(['{{ category.id }}', '{{ category.title }}']);
+        {% endfor %}
+    </script>
+</div>
+<hr>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-form-wrap">
+    {% if form.errors %}
+        <p class="error">Логин либо пароль неверны</p>
+    {% endif %}
+    <form class="login-form auth-form" action="/accounts/auth/" method="post">
+        {% csrf_token %}
+        <label for="username">Логин:</label>
+        <input type="text" name="username" value="">
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" value="">
+        <input type="submit" value="Войти">
+    </form>
+</div>
+{% endblock %}

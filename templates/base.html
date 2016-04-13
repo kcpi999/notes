@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Менеджер заметок</title>
+    <script src="/static/extjs/adapter/ext/ext-base-debug.js"></script>
+    <script src="/static/extjs/ext-all-debug.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/extjs/resources/css/ext-all.css">
+    
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="/static/main.js"></script>    
+</head>
+<body id="docbody">
+    <div class="header">
+        <div class="header__title">Менеджер персональных заметок, бета-версия</div>
+        <div class="header__login-details">            
+            {% if current_user_fio %}
+                {{ current_user_fio }},            
+                <a class="logout" href="/accounts/logout/">выйти</a>
+            {% else %}
+                <a class="login" href="/accounts/login/">войти,</a> 
+                <a class="login" href="/accounts/register/">зарегистрироваться</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="main">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div class="footer"></div>
+</body>
